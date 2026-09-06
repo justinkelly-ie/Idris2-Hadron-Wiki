@@ -5,8 +5,8 @@ module Wiki.HadronScaleTransformSpec
 
 import Core.BoxInt
 import Core.ScaleTransform
-import Compound.HadronicConfinement
-import Compound.StandardModel
+import Wiki.Observations.HadronicConfinement
+import Wiki.Observations.StandardModel
 import Wiki.Generators
 import public QuickCheck
 

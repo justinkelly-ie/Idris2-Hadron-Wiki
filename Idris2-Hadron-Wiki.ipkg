@@ -15,6 +15,22 @@ sourcedir = "Library"
 
 modules = Wiki.Generators
         , Wiki.HadronScaleTransformSpec
+        , Wiki.Observations.HadronicConfinement
+        , Wiki.Observations.StandardModel
+        , Wiki.Observations.QuarkHadronAlgebra
+        , Wiki.Observations.MesonAlgebra
+        , Wiki.Observations.HeavyMesonAlgebra
+        , Wiki.Observations.HyperonAlgebra
+        , Wiki.Observations.ExoticMultiquark
+        , Wiki.Observations.ParticleScattering
+        , Wiki.Observations.HadronizationEngine
+        , Wiki.Observations.TypeIndexedMultiset
+        , Wiki.Observations.GaugeBosons
+        , Wiki.Observations.StellarNuclei
+        , Wiki.Observations.StellarNucleosynthesis
+        , Wiki.Observations.CosmicNucleosynthesis
+        , Wiki.Observations.PlasmaRecombination
+        , Wiki.Observations.AlphaReplication
         , Wiki.Main
 
 main = Wiki.Main
