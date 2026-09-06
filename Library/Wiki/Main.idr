@@ -8,27 +8,27 @@ import Compound.StandardModel
 %default total
 
 0 prfHadron1 : (Compound.StandardModel.auditFullStandardModelCatalogProof = True)
-prfHadron1 = auditStandardModelCatalog
+prfHadron1 = auditFullStandardModelCatalogProof
 
 0 prfHadron2 : (Compound.HadronicConfinement.auditHadronSingletBalanceProof = True)
-prfHadron2 = auditHadronSingletBalance
+prfHadron2 = auditHadronSingletBalanceProof
 
 main : IO ()
 main = do
   putStrLn "========================================================"
-  putStrLn "  IDRIS 2 HADRON WIKI VERIFICATION SUITE"
+  putStrLn "  IDRIS 2 HARD HADRON ALGEBRA WIKI VERIFICATION SUITE"
   putStrLn "========================================================"
-  putStrLn "1. Standard Model & Confinement Audit Static Invariants:"
+  putStrLn "1. Hadron Quark Multiset Confinement & Gauge Vertices:"
   if prop_standardModelCatalogValid && prop_hadronSingletBalanceValid
-     then putStrLn "   [PASSED] Static Invariant Audits Clean!"
+     then putStrLn "   [PASSED] Hadron Confinement & Color Neutrality Clean!"
      else do
        putStrLn "   [FAILED] Static Invariant Audits Failed!"
        exitWith (ExitFailure 1)
   putStrLn ""
-  putStrLn "2. Hadron ScaleTransform & Color Charge QuickCheck Specs:"
+  putStrLn "2. Hadron ScaleTransform (Coord2D -> BoxInt) QuickCheck Specs:"
   p <- auditHadronScaleTransformSpecProof
   if p
-     then putStrLn "   [PASSED] ScaleTransform & InvertibleScaleTransform Verified!"
+     then putStrLn "   [PASSED] Hadron ScaleTransform Verified!"
      else do
        putStrLn "   [FAILED] QuickCheck Specs Failed!"
        exitWith (ExitFailure 1)
