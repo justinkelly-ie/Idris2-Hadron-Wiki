@@ -8,10 +8,10 @@ import Compound.StandardModel
 %default total
 
 0 prfHadron1 : (Compound.StandardModel.auditFullStandardModelCatalogProof = True)
-prfHadron1 = auditFullStandardModelCatalogProof
+prfHadron1 = Refl
 
 0 prfHadron2 : (Compound.HadronicConfinement.auditHadronSingletBalanceProof = True)
-prfHadron2 = auditHadronSingletBalanceProof
+prfHadron2 = Refl
 
 main : IO ()
 main = do
