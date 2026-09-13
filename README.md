@@ -23,7 +23,7 @@
 - **[Nucleosynthesis Networks](Library/Wiki/Observations/StellarNucleosynthesis.md)** — Stellar and cosmic nucleosynthesis balance networks (p-p chain, CNO cycle, triple-alpha reaction).
 
 ### 3. `Library/Wiki/Main.idr`
-- **Verification Runner:** Literate Idris 2 test runner executing compile-time `%macro` reflection proofs and QuickCheck property test suites for Layer 4b (`lhadron-wiki`).
+- **Verification Runner:** Literate Idris 2 test runner executing compile-time `%macro` reflection proofs and QuickCheck property test suites for Layer 4b (`hadron-wiki`).
 
 ---
 
@@ -33,7 +33,7 @@ To compile the literate verification suite and execute the test runner binary:
 
 ```bash
 idris2 --build Idris2-Hadron-Wiki.ipkg
-./build/exec/lhadron-wiki
+./build/exec/hadron-wiki
 ```
 
 ---

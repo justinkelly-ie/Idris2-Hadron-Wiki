@@ -34,4 +34,4 @@ modules = Wiki.Generators
         , Wiki.Main
 
 main = Wiki.Main
-executable = lhadron-wiki
+executable = hadron-wiki
