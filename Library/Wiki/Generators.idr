@@ -62,11 +62,3 @@ Arbitrary StandardModelParticle where
 
   coarbitrary (SMPFermion f) gen = coarbitrary f gen
   coarbitrary (SMPBoson b) gen   = coarbitrary b gen
-
-public export
-qc : (Arbitrary a, Show a, Testable prop) => (a -> prop) -> QCRes
-qc f = quickCheck (MkFn f)
-
-public export
-qc2 : (Arbitrary a, Show a, Arbitrary b, Show b, Testable prop) => (a -> b -> prop) -> QCRes
-qc2 f = quickCheck (MkFn (\x => MkFn (f x)))
