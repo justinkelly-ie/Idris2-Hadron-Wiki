@@ -64,7 +64,7 @@ tabulate27 = tabulate
 public export
 record HadronState where
   constructor MkHadronState
-  latticeGrid : Vect 27 BoxInt
+  latticeGrid : Vect 27 Core.BoxInt.BoxInt
 
 ||| Creates a balanced Hadronic Ground State at Epoch 3.
 public export
@@ -72,17 +72,17 @@ seedHadronEpoch3 : HadronState
 seedHadronEpoch3 =
   let grid = tabulate27 (\idx => 
         case cellColorSector idx of
-          RedColor   => intToBoxInt 1
-          GreenColor => intToBoxInt 1
-          BlueColor  => intToBoxInt 1)
+          RedColor   => Core.BoxInt.intToBoxInt 1
+          GreenColor => Core.BoxInt.intToBoxInt 1
+          BlueColor  => Core.BoxInt.intToBoxInt 1)
   in MkHadronState grid
 
 ||| Computes the net color charge sum of a sector.
 public export
-sectorColorSum : ColorCharge -> HadronState -> BoxInt
+sectorColorSum : ColorCharge -> HadronState -> Core.BoxInt.BoxInt
 sectorColorSum targetColor (MkHadronState grid) =
   let cells = filter (\idx => cellColorSector idx == targetColor) (allFins 27)
-  in foldl (\acc, idx => acc + index idx grid) (intToBoxInt 0) cells
+  in foldl (\acc, idx => acc + index idx grid) (Core.BoxInt.intToBoxInt 0) cells
   where
     allFins : (n : Nat) -> List (Fin n)
     allFins Z = []
@@ -99,7 +99,7 @@ isColorNeutral hadron =
 
 ||| Total Hadronic Valence Flux: Sum of all 27 cells.
 public export
-totalHadronFlux : HadronState -> BoxInt
+totalHadronFlux : HadronState -> Core.BoxInt.BoxInt
 totalHadronFlux (MkHadronState grid) = sumField27 grid
 
 ||| Converts a HadronState into a 3D Boxel multiset.
@@ -133,10 +133,10 @@ hadronSingletBalanceArray = MkBalanceArray [1, 1, 1, 0] [0, 0, 0, 1]
 public export
 auditHadronSingletBalanceProof : Bool
 auditHadronSingletBalanceProof =
-  let qR = MkVexel [(MkUnixel 1, intToBoxInt 9)]
-      qG = MkVexel [(MkUnixel 2, intToBoxInt 9)]
-      qB = MkVexel [(MkUnixel 3, intToBoxInt 9)]
-      bSinglet = MkVexel [(MkUnixel 1, intToBoxInt 9), (MkUnixel 2, intToBoxInt 9), (MkUnixel 3, intToBoxInt 9)]
+  let qR = MkVexel [(MkUnixel 1, Core.BoxInt.intToBoxInt 9)]
+      qG = MkVexel [(MkUnixel 2, Core.BoxInt.intToBoxInt 9)]
+      qB = MkVexel [(MkUnixel 3, Core.BoxInt.intToBoxInt 9)]
+      bSinglet = MkVexel [(MkUnixel 1, Core.BoxInt.intToBoxInt 9), (MkUnixel 2, Core.BoxInt.intToBoxInt 9), (MkUnixel 3, Core.BoxInt.intToBoxInt 9)]
   in isBalanced [qR, qG, qB, bSinglet] hadronSingletBalanceArray &&
      isDisjointBalance hadronSingletBalanceArray
 

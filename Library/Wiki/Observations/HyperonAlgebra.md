@@ -77,7 +77,7 @@ makeLambdaZeroBoxel =
 ||| Evaluates mass tokens of a Hyperon Boxel.
 %inline
 public export
-observeHyperonMassTokens : HadronBoxel -> BoxInt
+observeHyperonMassTokens : HadronBoxel -> Core.BoxInt.BoxInt
 observeHyperonMassTokens (MkBoxel [(v1, MkBoxInt w1), (v2, MkBoxInt w2), (v3, MkBoxInt w3)]) =
   MkBoxInt (w1 + w2 + w3)
 observeHyperonMassTokens b = totalBoxelWeight b

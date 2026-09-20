@@ -85,7 +85,7 @@ makeUpsilonBottomoniumVexel =
 ||| Evaluates mass tokens of a Heavy Meson Vexel.
 %inline
 public export
-observeHeavyMesonMassTokens : MesonVexel -> BoxInt
+observeHeavyMesonMassTokens : MesonVexel -> Core.BoxInt.BoxInt
 observeHeavyMesonMassTokens (MkVexel [(u1, MkBoxInt w1), (u2, MkBoxInt w2)]) = MkBoxInt (w1 + w2)
 observeHeavyMesonMassTokens m = totalVexelMass m
 

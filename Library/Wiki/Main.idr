@@ -3,6 +3,7 @@ module Wiki.Main
 import System
 import Language.Reflection
 import Wiki.HadronScaleTransformSpec
+import Wiki.NucleosynthesisStreamSpec
 import Wiki.Observations.HadronicConfinement
 import Wiki.Observations.StandardModel
 import Wiki.Observations.QuarkHadronAlgebra
@@ -58,6 +59,13 @@ main = do
      then putStrLn "   [PASSED] Hadron ScaleTransform Verified!"
      else do
        putStrLn "   [FAILED] QuickCheck Specs Failed!"
+       exitWith (ExitFailure 1)
+  putStrLn "3. Deforested Triple-Alpha Fusion & Nucleosynthesis Stream Specs:"
+  p3 <- auditNucleosynthesisStreamProof
+  if p3
+     then putStrLn "   [PASSED] Triple-Alpha Fusion Stream & Stability Verified!"
+     else do
+       putStrLn "   [FAILED] Nucleosynthesis Stream Specs Failed!"
        exitWith (ExitFailure 1)
   putStrLn "========================================================"
   putStrLn "  HADRON WIKI VERIFICATION COMPLETE: ALL PASSED!"

@@ -53,14 +53,14 @@ GluonMaxel = Maxel
 ||| Constructs the Maxel matrix for a given Gluon octet component.
 public export
 makeGluonMaxel : GluonIndex -> GluonMaxel
-makeGluonMaxel G1_RedAntiGreen  = MkMaxel [(MkPixel 1 2, intToBoxInt 1)]
-makeGluonMaxel G2_RedAntiBlue   = MkMaxel [(MkPixel 1 3, intToBoxInt 1)]
-makeGluonMaxel G3_GreenAntiRed  = MkMaxel [(MkPixel 2 1, intToBoxInt 1)]
-makeGluonMaxel G4_GreenAntiBlue = MkMaxel [(MkPixel 2 3, intToBoxInt 1)]
-makeGluonMaxel G5_BlueAntiRed   = MkMaxel [(MkPixel 3 1, intToBoxInt 1)]
-makeGluonMaxel G6_BlueAntiGreen = MkMaxel [(MkPixel 3 2, intToBoxInt 1)]
-makeGluonMaxel G7_NeutralDiag1  = MkMaxel [(MkPixel 1 1, intToBoxInt 1), (MkPixel 2 2, intToBoxInt (-1))]
-makeGluonMaxel G8_NeutralDiag2  = MkMaxel [(MkPixel 1 1, intToBoxInt 1), (MkPixel 2 2, intToBoxInt 1), (MkPixel 3 3, intToBoxInt (-2))]
+makeGluonMaxel G1_RedAntiGreen  = MkMaxel [(MkPixel 1 2, Core.BoxInt.intToBoxInt 1)]
+makeGluonMaxel G2_RedAntiBlue   = MkMaxel [(MkPixel 1 3, Core.BoxInt.intToBoxInt 1)]
+makeGluonMaxel G3_GreenAntiRed  = MkMaxel [(MkPixel 2 1, Core.BoxInt.intToBoxInt 1)]
+makeGluonMaxel G4_GreenAntiBlue = MkMaxel [(MkPixel 2 3, Core.BoxInt.intToBoxInt 1)]
+makeGluonMaxel G5_BlueAntiRed   = MkMaxel [(MkPixel 3 1, Core.BoxInt.intToBoxInt 1)]
+makeGluonMaxel G6_BlueAntiGreen = MkMaxel [(MkPixel 3 2, Core.BoxInt.intToBoxInt 1)]
+makeGluonMaxel G7_NeutralDiag1  = MkMaxel [(MkPixel 1 1, Core.BoxInt.intToBoxInt 1), (MkPixel 2 2, Core.BoxInt.intToBoxInt (-1))]
+makeGluonMaxel G8_NeutralDiag2  = MkMaxel [(MkPixel 1 1, Core.BoxInt.intToBoxInt 1), (MkPixel 2 2, Core.BoxInt.intToBoxInt 1), (MkPixel 3 3, Core.BoxInt.intToBoxInt (-2))]
 
 ||| Applies a Gluon Maxel color exchange operator to a Quark Vexel.
 public export
@@ -85,7 +85,7 @@ Eq ElectroweakBoson where
 
 ||| Beta Decay Operator (n -> p + e- + nu_bar).
 public export
-betaDecayNucleon : HadronBoxel -> (HadronBoxel, BoxInt)
+betaDecayNucleon : HadronBoxel -> (HadronBoxel, Core.BoxInt.BoxInt)
 betaDecayNucleon neutronBoxel =
   let protonBoxel = seedHadronBoxel
       releasedMass = totalBoxelWeight neutronBoxel - totalBoxelWeight protonBoxel
@@ -99,5 +99,5 @@ betaDecayNucleon neutronBoxel =
 public export
 auditGaugeBosonProof : Bool
 auditGaugeBosonProof =
-  (intToBoxInt 27 == intToBoxInt 27)
+  (Core.BoxInt.intToBoxInt 27 == Core.BoxInt.intToBoxInt 27)
 ```

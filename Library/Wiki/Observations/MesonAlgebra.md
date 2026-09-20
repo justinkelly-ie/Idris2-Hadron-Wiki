@@ -61,24 +61,24 @@ Show MesonSpec where
 public export
 makePionPlusVexel : MesonVexel
 makePionPlusVexel =
-  MkVexel [ (MkUnixel 1, intToBoxInt 9)  -- Up Quark (Red)
-          , (MkUnixel 2, intToBoxInt 9)  -- Anti-Down Quark (Anti-Green)
+  MkVexel [ (MkUnixel 1, Core.BoxInt.intToBoxInt 9)  -- Up Quark (Red)
+          , (MkUnixel 2, Core.BoxInt.intToBoxInt 9)  -- Anti-Down Quark (Anti-Green)
           ]
 
 ||| Constructs a Pion- (d u_bar) 18-token Vexel multiset.
 public export
 makePionMinusVexel : MesonVexel
 makePionMinusVexel =
-  MkVexel [ (MkUnixel 2, intToBoxInt 9)  -- Down Quark (Green)
-          , (MkUnixel 1, intToBoxInt 9)  -- Anti-Up Quark (Anti-Red)
+  MkVexel [ (MkUnixel 2, Core.BoxInt.intToBoxInt 9)  -- Down Quark (Green)
+          , (MkUnixel 1, Core.BoxInt.intToBoxInt 9)  -- Anti-Up Quark (Anti-Red)
           ]
 
 ||| Constructs a Kaon+ (u s_bar) 18-token Vexel multiset.
 public export
 makeKaonPlusVexel : MesonVexel
 makeKaonPlusVexel =
-  MkVexel [ (MkUnixel 1, intToBoxInt 9)  -- Up Quark
-          , (MkUnixel 3, intToBoxInt 9)  -- Anti-Strange Quark
+  MkVexel [ (MkUnixel 1, Core.BoxInt.intToBoxInt 9)  -- Up Quark
+          , (MkUnixel 3, Core.BoxInt.intToBoxInt 9)  -- Anti-Strange Quark
           ]
 
 ------------------------------------------------------------------------
@@ -88,7 +88,7 @@ makeKaonPlusVexel =
 ||| Observation: Total Mass Tokens of a Meson Vexel.
 %inline
 public export
-observeMesonMassTokens : MesonVexel -> BoxInt
+observeMesonMassTokens : MesonVexel -> Core.BoxInt.BoxInt
 observeMesonMassTokens m = totalVexelMass m
 
 ||| Verifies Color-Anticolor Neutrality on a Meson Vexel.
@@ -97,7 +97,7 @@ public export
 isMesonColorNeutral : MesonVexel -> Bool
 isMesonColorNeutral (MkVexel terms) =
   case terms of
-    [(s1, w1), (s2, w2)] => w1 == intToBoxInt 9 && w2 == intToBoxInt 9
+    [(s1, w1), (s2, w2)] => w1 == Core.BoxInt.intToBoxInt 9 && w2 == Core.BoxInt.intToBoxInt 9
     _ => False
 
 ------------------------------------------------------------------------
@@ -109,5 +109,5 @@ isMesonColorNeutral (MkVexel terms) =
 public export
 auditMesonAlgebraProof : Bool
 auditMesonAlgebraProof =
-  (intToBoxInt 18 == intToBoxInt 18)
+  (Core.BoxInt.intToBoxInt 18 == Core.BoxInt.intToBoxInt 18)
 ```

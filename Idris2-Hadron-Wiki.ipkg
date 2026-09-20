@@ -3,35 +3,29 @@ version = 0.1.0
 authors = "Justin Kelly"
 brief   = "Executable Verification Wiki & ScaleTransform Specs for Idris2-Hadron"
 
-depends = base
-        , idris2-QuickCheck
-        , Idris2-Multiset-Core
-        , Idris2-Multiset-Transform
-        , Idris2-Geometry
-        , Idris2-Physics
-        , Idris2-Hadron
-
+depends = Idris2-Chemistry, Idris2-Fields, Idris2-Hadron, Idris2-Multiset-Core, Idris2-Multiset-Transform, base, idris2-QuickCheck, linear
 sourcedir = "Library"
 
-modules = Wiki.Generators
-        , Wiki.HadronScaleTransformSpec
-        , Wiki.Observations.HadronicConfinement
-        , Wiki.Observations.StandardModel
-        , Wiki.Observations.QuarkHadronAlgebra
-        , Wiki.Observations.MesonAlgebra
-        , Wiki.Observations.HeavyMesonAlgebra
-        , Wiki.Observations.HyperonAlgebra
-        , Wiki.Observations.ExoticMultiquark
-        , Wiki.Observations.ParticleScattering
-        , Wiki.Observations.HadronizationEngine
-        , Wiki.Observations.TypeIndexedMultiset
-        , Wiki.Observations.GaugeBosons
-        , Wiki.Observations.StellarNuclei
-        , Wiki.Observations.StellarNucleosynthesis
-        , Wiki.Observations.CosmicNucleosynthesis
-        , Wiki.Observations.PlasmaRecombination
-        , Wiki.Observations.AlphaReplication
-        , Wiki.Main
+modules = Wiki.Generators,
+          Wiki.HadronScaleTransformSpec,
+          Wiki.Main,
+          Wiki.NucleosynthesisStreamSpec,
+          Wiki.Observations.AlphaReplication,
+          Wiki.Observations.CosmicNucleosynthesis,
+          Wiki.Observations.ExoticMultiquark,
+          Wiki.Observations.GaugeBosons,
+          Wiki.Observations.HadronicConfinement,
+          Wiki.Observations.HadronizationEngine,
+          Wiki.Observations.HeavyMesonAlgebra,
+          Wiki.Observations.HyperonAlgebra,
+          Wiki.Observations.MesonAlgebra,
+          Wiki.Observations.ParticleScattering,
+          Wiki.Observations.PlasmaRecombination,
+          Wiki.Observations.QuarkHadronAlgebra,
+          Wiki.Observations.StandardModel,
+          Wiki.Observations.StellarNuclei,
+          Wiki.Observations.StellarNucleosynthesis,
+          Wiki.Observations.TypeIndexedMultiset
 
 main = Wiki.Main
 executable = hadron-wiki

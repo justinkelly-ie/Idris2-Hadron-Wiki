@@ -45,13 +45,13 @@ HadronBoxel = Boxel
 public export
 makeUpQuarkVexel : (colorIdx : Nat) -> QuarkVexel
 makeUpQuarkVexel col =
-  MkVexel [(MkUnixel col, intToBoxInt 9)]
+  MkVexel [(MkUnixel col, Core.BoxInt.intToBoxInt 9)]
 
 ||| Generates a pure multiset Down-Quark Vexel in a given color sector.
 public export
 makeDownQuarkVexel : (colorIdx : Nat) -> QuarkVexel
 makeDownQuarkVexel col =
-  MkVexel [(MkUnixel col, intToBoxInt 9)]
+  MkVexel [(MkUnixel col, Core.BoxInt.intToBoxInt 9)]
 
 ------------------------------------------------------------------------
 -- 3. COMBINATORS
@@ -70,7 +70,7 @@ hadronizeQuarkVexels qR qG qB =
 
 ||| Observation: Total Mass Tokens of a Hadron Boxel (must equal 27).
 public export
-observeHadronMassTokens : HadronBoxel -> BoxInt
+observeHadronMassTokens : HadronBoxel -> Core.BoxInt.BoxInt
 observeHadronMassTokens b = totalBoxelWeight b
 
 ||| Observation: Color Neutrality via Z-slice symmetry on Boxels.
@@ -93,6 +93,6 @@ observeHadronBaryonFraction b =
 public export
 auditQuarkHadronAlgebraProof : Bool
 auditQuarkHadronAlgebraProof =
-  (observeHadronMassTokens seedHadronBoxel == intToBoxInt 27) &&
+  (observeHadronMassTokens seedHadronBoxel == Core.BoxInt.intToBoxInt 27) &&
   (observeHadronColorNeutrality seedHadronBoxel == True)
 ```

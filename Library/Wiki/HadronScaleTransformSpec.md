@@ -2,7 +2,20 @@
 
 Documents and verifies Quark-to-Hadron scale transformation homomorphisms $T_1 : \text{ColorCharge} \to \text{HadronToken}$, $SU(3)$ color charge neutrality homomorphisms ($\text{Red} + \text{Green} + \text{Blue} \to \text{Proton}$), Gell-Mann octet balance, and Standard Model particle catalog observables under Sandy Maguire's Homomorphic Observation framework using QuickCheck property testing.
 
-## 1. Mathematical Foundation & Confinement Homomorphisms
+---
+
+## 1. Quark-Hadron Confinement $\leftrightarrow$ Multiset Tensor Basis Duality Dictionary
+
+| Subatomic Hadronic Construct | Multiset Tensor Dual | Multiset Implementation |
+| :--- | :--- | :--- |
+| **Quark Color Charge Vector** | 1D Basis `Vexel` Vector | `QuarkVexel = Vexel` |
+| **Hadronic Nucleon Volume** | 3D Lattice `Boxel` Tensor (27 Mass Tokens) | `HadronBoxel = Boxel` |
+| **Nucleon Mass Token Conservation** | Total Voxel Weight | `observeHadronMassTokens : HadronBoxel -> BoxInt` |
+| **Muon Dipole Moment $a_\mu$** | Exact Fraction Loop Defect | `computeTotalMuonG2 : MuonG2Moment` |
+
+---
+
+## 2. Mathematical Foundation & Confinement Homomorphisms
 
 Subatomic quark states contract into hadronic nucleons via structure-preserving scale functors $T_1 : \mathbf{ScaleLevel}_1 \to \mathbf{ScaleLevel}_2$:
 
@@ -10,6 +23,10 @@ Subatomic quark states contract into hadronic nucleons via structure-preserving 
 2. **Hadron Singlet Balance**: $\text{baryonNumber}(\mathbf{T}_1(q_1 + q_2 + q_3)) \equiv 1$
 3. **Galois Adjunction Inversion Roundtrip**: $\mathbf{T}_1^{-1}(\mathbf{T}_1(c)) \equiv c$
 4. **Standard Model Particle Projection**: $\text{colorToNat}(c) \equiv \text{scaleTransform}(c)$
+
+---
+
+## 3. Formal Specification & Verification Suite
 
 ```idris
 module Wiki.HadronScaleTransformSpec
@@ -37,10 +54,10 @@ prop_scalePreservesColor c =
   let z : Nat = scaleTransform c
   in z > 0
 
-||| 2. Invert Scale Galois Inversion: T^-1(T(c)) == c
+||| 2. Invert Scale Adjunction Inversion: T^-1(T(c)) == c
 public export
-prop_invertScaleGalois : ColorCharge -> Bool
-prop_invertScaleGalois c =
+prop_invertScaleAdjunction : ColorCharge -> Bool
+prop_invertScaleAdjunction c =
   let z : Nat = scaleTransform c
       c' : ColorCharge = invertScaleTransform z
   in c' == c
@@ -67,7 +84,7 @@ public export
 auditHadronScaleTransformSpecProof : IO Bool
 auditHadronScaleTransformSpecProof = do
   let r1 = qc prop_scalePreservesColor
-  let r2 = qc prop_invertScaleGalois
+  let r2 = qc prop_invertScaleAdjunction
   let r3 = qc prop_observablePreserved
   pure (r1.pass == Just True && r2.pass == Just True && r3.pass == Just True)
 ```
