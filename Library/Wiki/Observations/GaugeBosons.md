@@ -48,24 +48,24 @@ Eq GluonIndex where
 ||| A Gluon is an SU(3) color-exchange Maxel matrix [color_in, color_out].
 public export
 GluonMaxel : Type
-GluonMaxel = Maxel
+GluonMaxel = Core.VexelMaxel.Maxel
 
 ||| Constructs the Maxel matrix for a given Gluon octet component.
 public export
 makeGluonMaxel : GluonIndex -> GluonMaxel
-makeGluonMaxel G1_RedAntiGreen  = MkMaxel [(MkPixel 1 2, Core.BoxInt.intToBoxInt 1)]
-makeGluonMaxel G2_RedAntiBlue   = MkMaxel [(MkPixel 1 3, Core.BoxInt.intToBoxInt 1)]
-makeGluonMaxel G3_GreenAntiRed  = MkMaxel [(MkPixel 2 1, Core.BoxInt.intToBoxInt 1)]
-makeGluonMaxel G4_GreenAntiBlue = MkMaxel [(MkPixel 2 3, Core.BoxInt.intToBoxInt 1)]
-makeGluonMaxel G5_BlueAntiRed   = MkMaxel [(MkPixel 3 1, Core.BoxInt.intToBoxInt 1)]
-makeGluonMaxel G6_BlueAntiGreen = MkMaxel [(MkPixel 3 2, Core.BoxInt.intToBoxInt 1)]
-makeGluonMaxel G7_NeutralDiag1  = MkMaxel [(MkPixel 1 1, Core.BoxInt.intToBoxInt 1), (MkPixel 2 2, Core.BoxInt.intToBoxInt (-1))]
-makeGluonMaxel G8_NeutralDiag2  = MkMaxel [(MkPixel 1 1, Core.BoxInt.intToBoxInt 1), (MkPixel 2 2, Core.BoxInt.intToBoxInt 1), (MkPixel 3 3, Core.BoxInt.intToBoxInt (-2))]
+makeGluonMaxel G1_RedAntiGreen  = Core.VexelMaxel.MkMaxel [(MkPixel 1 2, Core.BoxInt.intToBoxInt 1)]
+makeGluonMaxel G2_RedAntiBlue   = Core.VexelMaxel.MkMaxel [(MkPixel 1 3, Core.BoxInt.intToBoxInt 1)]
+makeGluonMaxel G3_GreenAntiRed  = Core.VexelMaxel.MkMaxel [(MkPixel 2 1, Core.BoxInt.intToBoxInt 1)]
+makeGluonMaxel G4_GreenAntiBlue = Core.VexelMaxel.MkMaxel [(MkPixel 2 3, Core.BoxInt.intToBoxInt 1)]
+makeGluonMaxel G5_BlueAntiRed   = Core.VexelMaxel.MkMaxel [(MkPixel 3 1, Core.BoxInt.intToBoxInt 1)]
+makeGluonMaxel G6_BlueAntiGreen = Core.VexelMaxel.MkMaxel [(MkPixel 3 2, Core.BoxInt.intToBoxInt 1)]
+makeGluonMaxel G7_NeutralDiag1  = Core.VexelMaxel.MkMaxel [(MkPixel 1 1, Core.BoxInt.intToBoxInt 1), (MkPixel 2 2, Core.BoxInt.intToBoxInt (-1))]
+makeGluonMaxel G8_NeutralDiag2  = Core.VexelMaxel.MkMaxel [(MkPixel 1 1, Core.BoxInt.intToBoxInt 1), (MkPixel 2 2, Core.BoxInt.intToBoxInt 1), (MkPixel 3 3, Core.BoxInt.intToBoxInt (-2))]
 
 ||| Applies a Gluon Maxel color exchange operator to a Quark Vexel.
 public export
 actGluonOnQuark : GluonMaxel -> QuarkVexel -> QuarkVexel
-actGluonOnQuark g q = actMaxelVexel g q
+actGluonOnQuark g q = Core.VexelMaxel.actMaxelVexel g q
 
 ------------------------------------------------------------------------
 -- 2. ELECTROWEAK BOSONS & BETA DECAY OPERATOR
