@@ -1,6 +1,8 @@
 module Wiki.Main
 
 import System
+import Core
+import Hadron
 import Language.Reflection
 import Wiki.HadronScaleTransformSpec
 import Wiki.NucleosynthesisStreamSpec
@@ -24,13 +26,13 @@ import Wiki.Observations.AlphaReplication
 %default total
 
 0 prfHadron1 : (Wiki.Observations.StandardModel.auditFullStandardModelCatalogProof = True)
-prfHadron1 = auditStandardModelCatalog
+prfHadron1 = Refl
 
 0 prfHadron2 : (Wiki.Observations.HadronicConfinement.auditHadronSingletBalanceProof = True)
-prfHadron2 = auditHadronSingletBalance
+prfHadron2 = Refl
 
 0 prfHadron3 : (Wiki.Observations.TypeIndexedMultiset.auditTypeIndexedMultisetProof = True)
-prfHadron3 = auditTypeIndexedMultiset
+prfHadron3 = Refl
 
 main : IO ()
 main = do
@@ -39,15 +41,20 @@ main = do
   putStrLn "========================================================"
   putStrLn "1. Hadron Quark Multiset Confinement & Gauge Vertices:"
   if prop_standardModelCatalogValid && prop_hadronSingletBalanceValid &&
-     auditQuarkHadronAlgebraProof && auditMesonAlgebraProof &&
-     auditHeavyMesonAlgebraProof && auditHyperonAlgebraProof &&
-     auditExoticMultiquarksProof && auditParticleScatteringProof &&
-     auditHadronizationEngineProof && auditTypeIndexedMultisetProof &&
-     auditGaugeBosonProof && auditStellarNucleiProof &&
-     auditCompleteStellarFusionBalanceNetworkProof &&
-     auditCosmicNucleosynthesisProof &&
-     auditPlasmaRecombinationDecouplingProof &&
-     auditTripleAlphaCarbonBalanceProof
+     Wiki.Observations.QuarkHadronAlgebra.auditQuarkHadronAlgebraProof &&
+     Wiki.Observations.MesonAlgebra.auditMesonAlgebraProof &&
+     Wiki.Observations.HeavyMesonAlgebra.auditHeavyMesonAlgebraProof &&
+     Wiki.Observations.HyperonAlgebra.auditHyperonAlgebraProof &&
+     Wiki.Observations.ExoticMultiquark.auditExoticMultiquarksProof &&
+     Wiki.Observations.ParticleScattering.auditParticleScatteringProof &&
+     Wiki.Observations.HadronizationEngine.auditHadronizationEngineProof &&
+     Wiki.Observations.TypeIndexedMultiset.auditTypeIndexedMultisetProof &&
+     Wiki.Observations.GaugeBosons.auditGaugeBosonProof &&
+     Wiki.Observations.StellarNuclei.auditStellarNucleiProof &&
+     Wiki.Observations.StellarNucleosynthesis.auditCompleteStellarFusionBalanceNetworkProof &&
+     Wiki.Observations.CosmicNucleosynthesis.auditCosmicNucleosynthesisProof &&
+     Wiki.Observations.PlasmaRecombination.auditPlasmaRecombinationDecouplingProof &&
+     Wiki.Observations.AlphaReplication.auditTripleAlphaCarbonBalanceProof
      then putStrLn "   [PASSED] Hadron Confinement & All 16 Hadronic Suites Clean!"
      else do
        putStrLn "   [FAILED] Static Invariant Audits Failed!"

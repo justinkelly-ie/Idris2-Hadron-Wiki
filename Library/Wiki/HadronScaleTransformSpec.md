@@ -31,10 +31,9 @@ Subatomic quark states contract into hadronic nucleons via structure-preserving 
 ```idris
 module Wiki.HadronScaleTransformSpec
 
-import Core.BoxInt
-import Core.ScaleTransform
-import Wiki.Observations.HadronicConfinement
-import Wiki.Observations.StandardModel
+import Core
+import Transform
+import Hadron
 import Wiki.Generators
 import public QuickCheck
 

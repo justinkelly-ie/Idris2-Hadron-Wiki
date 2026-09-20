@@ -1,9 +1,8 @@
 module Wiki.Generators
 
 import public QuickCheck
-import Wiki.Observations.HadronicConfinement
-import Wiki.Observations.StandardModel
-import Core.BoxInt
+import Core
+import Hadron
 
 %default total
 

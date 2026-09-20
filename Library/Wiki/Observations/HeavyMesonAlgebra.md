@@ -15,7 +15,7 @@ import Core.BoxInt
 import Core.Multiset
 import Core.VexelMaxel
 import Core.UnixelFraction
-import Math.FourGeometries
+import Core
 import Math.ExclusionPrinciple
 import Wiki.Observations.TypeIndexedMultiset
 import Wiki.Observations.MesonAlgebra

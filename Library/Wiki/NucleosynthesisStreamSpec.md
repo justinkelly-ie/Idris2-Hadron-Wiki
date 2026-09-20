@@ -9,10 +9,9 @@ module Wiki.NucleosynthesisStreamSpec
 
 import Data.List
 import Data.Fuel
+import Core
+import Hadron
 import Math.OnSeq.FusedStream
-import Compound.AlphaReplication
-import Hadron.NucleosynthesisStream
-import Core.BoxInt
 
 %default total
 
@@ -37,7 +36,7 @@ prop_tripleAlphaFusionFluxStream =
     strm = unfoldAlphaFusionStream [a]
     res = runFueledStream (limit 10) strm
   in
-    res == [Core.BoxInt.intToBoxInt 324]
+    res == [intToBoxInt 324]
 
 ||| QuickCheck / Direct Suite Execution for Nucleosynthesis Stream Spec
 public export

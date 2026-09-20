@@ -20,7 +20,7 @@ import Geometry.LatticeTopology
 import Core.UniverseState
 import Core.Multiset
 import Core.UnixelFraction
-import Core.TransformMultiset
+import Core.MaxelTransform
 import Data.Vect
 import Data.Fin
 
