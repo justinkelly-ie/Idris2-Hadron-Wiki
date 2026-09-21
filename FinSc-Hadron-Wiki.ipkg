@@ -1,9 +1,9 @@
-package Idris2-Hadron-Wiki
+package FinSc-Hadron-Wiki
 version = 0.1.0
 authors = "Justin Kelly"
-brief   = "Executable Verification Wiki & ScaleTransform Specs for Idris2-Hadron"
+brief   = "Executable Verification Wiki & ScaleTransform Specs for FinSc-Hadron"
 
-depends = Idris2-Chemistry, Idris2-Fields, Idris2-Hadron, Idris2-Multiset-Core, Idris2-Multiset-Transform, base, idris2-QuickCheck, linear
+depends = FinSc-Chemistry, FinSc-Fields, FinSc-Hadron, FinSc-Multiset-Core, FinSc-Multiset-Transform, base, idris2-QuickCheck, linear
 sourcedir = "Library"
 
 modules = Wiki.Generators,
